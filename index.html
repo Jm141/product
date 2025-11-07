@@ -119,6 +119,92 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Installation Guide -->
+                <div class="installation-guide">
+                    <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>System Requirements</h4>
+                                <ul class="requirements">
+                                    <li>Windows 10/11 or macOS 10.15+</li>
+                                    <li>Node.js 18+ and npm 9+</li>
+                                    <li>MongoDB 6.0+ or PostgreSQL 14+</li>
+                                    <li>4GB RAM minimum (8GB recommended)</li>
+                                    <li>2GB free disk space</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Quick Start</h4>
+                                <div class="code-block">
+                                    <pre><code># Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Configuration</h4>
+                                <p>Edit the <code>.env</code> file to configure your database and other settings:</p>
+                                <div class="code-block">
+                                    <pre><code>NODE_ENV=production
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/aruga_accounting
+JWT_SECRET=your_jwt_secret
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_email@example.com
+SMTP_PASS=your_email_password</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Post-Installation</h4>
+                                <ul class="post-install">
+                                    <li>Access the application at <code>http://localhost:3000</code></li>
+                                    <li>Run database migrations: <code>npm run migrate</code></li>
+                                    <li>Create your first admin user</li>
+                                    <li>Set up your company information</li>
+                                </ul>
+                                <div class="alert info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>For production use, please set up a process manager like PM2.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="documentation-links">
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-book"></i> Full Documentation
+                        </a>
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-video"></i> Video Tutorials
+                        </a>
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-question-circle"></i> Get Support
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Accounting System -->
@@ -221,6 +307,102 @@
                             <h4>Employee Self-Service</h4>
                             <p>Access to payslips and tax documents</p>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Installation Guide -->
+                <div class="installation-guide">
+                    <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>System Requirements</h4>
+                                <ul class="requirements">
+                                    <li>Windows Server 2019+ or Linux (Ubuntu 22.04 LTS)</li>
+                                    <li>Docker and Docker Compose</li>
+                                    <li>8GB RAM minimum (16GB recommended)</li>
+                                    <li>50GB free disk space</li>
+                                    <li>SSL Certificate (for production)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Quick Start with Docker</h4>
+                                <div class="code-block">
+                                    <pre><code># Create a new directory
+mkdir aruga-payroll
+cd aruga-payroll
+
+# Download docker-compose.yml
+wget https://downloads.aruga.com/payroll/docker-compose.yml
+
+# Start the application
+docker-compose up -d
+
+# Initialize the application
+docker-compose exec app php artisan migrate --seed
+
+# The application will be available at https://your-domain.com</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Configuration</h4>
+                                <p>Edit the <code>docker-compose.yml</code> file to configure your environment:</p>
+                                <div class="code-block">
+                                    <pre><code>services:
+  app:
+    image: aruga/payroll:latest
+    environment:
+      - APP_ENV=production
+      - APP_KEY=base64:your_app_key_here
+      - DB_HOST=db
+      - DB_DATABASE=payroll
+      - DB_USERNAME=payroll_user
+      - DB_PASSWORD=your_secure_password
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data:/var/www/html/storage
+    depends_on:
+      - db
+      - redis</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Post-Installation</h4>
+                                <ul class="post-install">
+                                    <li>Access the admin panel at <code>/admin</code></li>
+                                    <li>Set up your company information</li>
+                                    <li>Configure payroll settings and tax tables</li>
+                                    <li>Import employee data or add manually</li>
+                                </ul>
+                                <div class="alert warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>For production use, please set up proper SSL certificates and backups.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="documentation-links">
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-book"></i> Full Documentation
+                        </a>
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-video"></i> Video Tutorials
+                        </a>
+                        <a href="#" class="doc-link">
+                            <i class="fas fa-question-circle"></i> Get Support
+                        </a>
                     </div>
                 </div>
             </div>

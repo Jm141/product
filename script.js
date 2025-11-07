@@ -32,9 +32,64 @@ const tabContent = document.querySelector('.tab-content');
 const contactForm = document.getElementById('contactForm');
 const productSections = document.querySelectorAll('.product-section');
 const navLinks = document.querySelectorAll('.nav-link');
+const docLinks = document.querySelectorAll('.doc-link');
+
+// Add smooth scrolling for documentation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            // If it's a product section, show it
+            if (targetId.includes('-section')) {
+                const productId = targetId.replace('-section', '').substring(1);
+                showProduct(productId);
+            }
+            
+            // Smooth scroll to the target
+            setTimeout(() => {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+    });
+});
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
+  // Add copy to clipboard functionality for code blocks
+  document.querySelectorAll('.code-block').forEach(block => {
+    const button = document.createElement('button');
+    button.className = 'copy-button';
+    button.innerHTML = '<i class="far fa-copy"></i>';
+    button.title = 'Copy to clipboard';
+    
+    button.addEventListener('click', () => {
+      const code = block.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.innerHTML = '<i class="far fa-copy"></i>';
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    });
+    
+    block.style.position = 'relative';
+    block.appendChild(button);
+  });
+  
+  // Initialize tooltips for documentation links
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
   // Initialize the first tab and section as active
   showProduct(products[0].id);
   
@@ -89,6 +144,20 @@ function showProduct(productId) {
   const activeSection = document.getElementById(`${productId}-section`);
   if (activeSection) {
     activeSection.classList.add('active');
+    
+    // Update URL without page reload
+    const newUrl = `${window.location.pathname}#${productId}`;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+    
+    // Add active class to installation guide in the current section
+    const installationGuide = activeSection.querySelector('.installation-guide');
+    if (installationGuide) {
+      // Add a slight delay to ensure the section is visible
+      setTimeout(() => {
+        installationGuide.style.opacity = '1';
+        installationGuide.style.transform = 'translateY(0)';
+      }, 50);
+    }
   }
   
   // Update tab buttons
@@ -114,6 +183,12 @@ function showProduct(productId) {
     setTimeout(() => {
       activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
+  }
+  
+  // Update document title
+  const product = products.find(p => p.id === productId);
+  if (product) {
+    document.title = `${product.name} | ARUGA Products`;
   }
 }
 

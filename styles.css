@@ -298,6 +298,296 @@ section {
     margin: 0;
 }
 
+/* Installation Guide */
+.installation-guide {
+    max-width: 1200px;
+    margin: 3rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.installation-guide h3 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.installation-guide h3 i {
+    font-size: 1.5rem;
+}
+
+.guide-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    counter-reset: step-counter;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 2.5rem;
+    bottom: -2rem;
+    width: 2px;
+    background: #e5e7eb;
+    z-index: 1;
+}
+
+.step-number {
+    position: absolute;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+}
+
+.requirements, .post-install {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.requirements li, .post-install li {
+    padding: 0.35rem 0;
+    padding-left: 1.75rem;
+    position: relative;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+.code-block {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.code-block pre {
+    margin: 0;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+}
+
+.code-block code {
+    font-family: inherit;
+}
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.alert i {
+    font-size: 1.25rem;
+    margin-top: 0.15rem;
+}
+
+.alert.warning {
+    background: #fffbeb;
+    color: #92400e;
+    border-left: 4px solid #f59e0b;
+}
+
+.alert.info {
+    background: #eff6ff;
+    color: #1e40af;
+    border-left: 4px solid #3b82f6;
+}
+
+.documentation-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid var(--primary);
+}
+
+.doc-link:hover {
+    background: transparent;
+    color: var(--primary);
+}
+
+.doc-link i {
+    font-size: 1.1rem;
+}
+
+/* Copy Button */
+.copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+}
+
+.copy-button.copied {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Syntax Highlighting */
+.code-block code {
+    display: block;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+}
+
+.code-block .token.comment,
+.code-block .token.prolog,
+.code-block .token.doctype,
+.code-block .token.cdata {
+    color: #64748b;
+}
+
+.code-block .token.punctuation {
+    color: #94a3b8;
+}
+
+.code-block .token.property,
+.code-block .token.tag,
+.code-block .token.boolean,
+.code-block .token.number,
+.code-block .token.constant,
+.code-block .token.symbol,
+.code-block .token.deleted {
+    color: #f472b6;
+}
+
+.code-block .token.selector,
+.code-block .token.attr-name,
+.code-block .token.string,
+.code-block .token.char,
+.code-block .token.builtin,
+.code-block .token.inserted {
+    color: #34d399;
+}
+
+.code-block .token.operator,
+.code-block .token.entity,
+.code-block .token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #f59e0b;
+    background: none;
+}
+
+.code-block .token.atrule,
+.code-block .token.attr-value,
+.code-block .token.keyword {
+    color: #60a5fa;
+}
+
+.code-block .token.function,
+.code-block .token.class-name {
+    color: #818cf8;
+}
+
+.code-block .token.regex,
+.code-block .token.important,
+.code-block .token.variable {
+    color: #f59e0b;
+}
+
+/* Print Styles */
+@media print {
+    .installation-guide {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .code-block {
+        background: #f8f9fa !important;
+        color: #1e293b !important;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .code-block code {
+        color: #1e293b !important;
+    }
+    
+    .doc-link {
+        display: none !important;
+    }
+}
+
 .product-tabs {
     display: flex;
     justify-content: center;
