@@ -70,30 +70,115 @@
         <!-- Individual Product Sections -->
         <section class="product-sections">
             <!-- LGU Management System -->
-            <div id="lgu-section" class="product-section active">
-                <div class="product-hero" style="background-color: #f0f9ff;">
-                    <div class="product-hero-content">
-                        <h2>LGU Management System</h2>
-                        <p class="product-tagline">Streamline local government operations with our comprehensive management solution</p>
-                        <div class="product-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-users"></i>
-                                <span>Citizen Management</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-file-invoice"></i>
-                                <span>Permit Processing</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Revenue Tracking</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <div class="image-placeholder">LGU Dashboard Preview</div>
-                    </div>
-                </div>
+           <div id="lgu-section" class="product-section active">
+               <div class="product-hero" style="background-color: #f0f9ff;">
+                   <div class="product-hero-content">
+                       <h2>LGU Management System</h2>
+                       <p class="product-tagline">Streamline local government operations with our comprehensive management solution</p>
+                       <a href="#lgu-installation" class="cta-button primary">
+                           <i class="fas fa-download"></i> Get Started
+                       </a>
+                   </div>
+                   <div class="product-image">
+                       <div class="image-placeholder">LGU Dashboard Preview</div>
+                   </div>
+               </div>
+
+               <!-- Overview Section -->
+               <div class="content-section">
+                   <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                   <div class="section-content">
+                       <p>The LGU Management System is a comprehensive platform designed to modernize local government operations. It provides tools for citizen engagement, document management, and financial tracking, all in one integrated solution.</p>
+                       <div class="feature-grid">
+                           <div class="feature-card">
+                               <i class="fas fa-users"></i>
+                               <h4>Citizen Portal</h4>
+                               <p>Self-service portal for residents to access services and information</p>
+                           </div>
+                           <div class="feature-card">
+                               <i class="fas fa-file-signature"></i>
+                               <h4>Document Management</h4>
+                               <p>Secure storage and retrieval of all government documents</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- UI Interfaces -->
+               <div class="content-section">
+                   <h3><i class="fas fa-desktop"></i> UI Interfaces</h3>
+                   <div class="section-content">
+                       <div class="ui-gallery">
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/eff6ff/1e40af?text=LGU+Dashboard');"></div>
+                               <p>Administrative Dashboard</p>
+                           </div>
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/dbeafe/1e40af?text=Citizen+Portal');"></div>
+                               <p>Citizen Portal</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Installation Guide -->
+               <div id="lgu-installation" class="content-section installation-guide">
+                   <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                   <div class="section-content">
+                       <div class="installation-steps">
+                           <div class="step">
+                               <div class="step-number">1</div>
+                               <div class="step-content">
+                                   <h4>System Requirements</h4>
+                                   <ul>
+                                       <li>Web Server: Apache/Nginx</li>
+                                       <li>PHP 8.0+</li>
+                                       <li>MySQL 5.7+ or MariaDB 10.3+</li>
+                                       <li>Composer</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">2</div>
+                               <div class="step-content">
+                                   <h4>Quick Start</h4>
+                                   <div class="code-block">
+                                       <pre><code># Clone the repository
+git clone https://github.com/your-repo/lgu-system.git
+cd lgu-system
+
+# Install dependencies
+composer install
+npm install
+
+# Configure environment
+cp .env.example .env
+php artisan key:generate
+
+# Run migrations and seeders
+php artisan migrate --seed</code></pre>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">3</div>
+                               <div class="step-content">
+                                   <h4>Configuration</h4>
+                                   <p>Edit the <code>.env</code> file with your database credentials and other settings.</p>
+                                   <p>Set up your mail configuration for notifications.</p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cta-container">
+                           <a href="#contact" class="cta-button secondary">
+                               <i class="fas fa-headset"></i> Need Help? Contact Support
+                           </a>
+                           <a href="#" class="doc-link" target="_blank" rel="noopener noreferrer">
+                               <i class="fas fa-book"></i> View Full Documentation
+                           </a>
+                       </div>
+                   </div>
+               </div>
                 <div class="product-features">
                     <h3>Key Features</h3>
                     <div class="features-grid">
@@ -119,119 +204,120 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Installation Guide -->
-                <div class="installation-guide">
-                    <h3><i class="fas fa-download"></i> Installation Guide</h3>
-                    <div class="guide-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>System Requirements</h4>
-                                <ul class="requirements">
-                                    <li>Windows 10/11 or macOS 10.15+</li>
-                                    <li>Node.js 18+ and npm 9+</li>
-                                    <li>MongoDB 6.0+ or PostgreSQL 14+</li>
-                                    <li>4GB RAM minimum (8GB recommended)</li>
-                                    <li>2GB free disk space</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Quick Start</h4>
-                                <div class="code-block">
-                                    <pre><code># Install dependencies
+            </div>
+
+            <!-- Accounting System -->
+           <div id="accounting-section" class="product-section">
+               <div class="product-hero" style="background-color: #f0fdf4;">
+                   <div class="product-hero-content">
+                       <h2>Accounting System</h2>
+                       <p class="product-tagline">Comprehensive financial management for modern businesses</p>
+                       <a href="#accounting-installation" class="cta-button primary">
+                           <i class="fas fa-download"></i> Get Started
+                       </a>
+                   </div>
+                   <div class="product-image">
+                       <div class="image-placeholder">Accounting Dashboard Preview</div>
+                   </div>
+               </div>
+
+               <!-- Overview Section -->
+               <div class="content-section">
+                   <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                   <div class="section-content">
+                       <p>Our Accounting System provides a complete financial management solution with real-time reporting, automated workflows, and compliance with accounting standards. Perfect for businesses of all sizes.</p>
+                       <div class="feature-grid">
+                           <div class="feature-card">
+                               <i class="fas fa-balance-scale"></i>
+                               <h4>General Ledger</h4>
+                               <p>Complete financial record keeping and reporting</p>
+                           </div>
+                           <div class="feature-card">
+                               <i class="fas fa-hand-holding-usd"></i>
+                               <h4>Accounts Management</h4>
+                               <p>Streamlined invoice and payment processing</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- UI Interfaces -->
+               <div class="content-section">
+                   <h3><i class="fas fa-desktop"></i> UI Interfaces</h3>
+                   <div class="section-content">
+                       <div class="ui-gallery">
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/ecfdf5/047857?text=Accounting+Dashboard');"></div>
+                               <p>Financial Dashboard</p>
+                           </div>
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/d1fae5/047857?text=Transaction+List');"></div>
+                               <p>Transaction Management</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Installation Guide -->
+               <div id="accounting-installation" class="content-section installation-guide">
+                   <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                   <div class="section-content">
+                       <div class="installation-steps">
+                           <div class="step">
+                               <div class="step-number">1</div>
+                               <div class="step-content">
+                                   <h4>System Requirements</h4>
+                                   <ul>
+                                       <li>Node.js 16+</li>
+                                       <li>MongoDB 4.4+</li>
+                                       <li>NPM 8+ or Yarn</li>
+                                       <li>Redis (for caching)</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">2</div>
+                               <div class="step-content">
+                                   <h4>Quick Start</h4>
+                                   <div class="code-block">
+                                       <pre><code># Clone the repository
+git clone https://github.com/your-repo/accounting-system.git
+cd accounting-system
+
+# Install dependencies
 npm install
+# or
+yarn
 
 # Set up environment variables
 cp .env.example .env
 
 # Start the development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Configuration</h4>
-                                <p>Edit the <code>.env</code> file to configure your database and other settings:</p>
-                                <div class="code-block">
-                                    <pre><code>NODE_ENV=production
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017/aruga_accounting
-JWT_SECRET=your_jwt_secret
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your_email@example.com
-SMTP_PASS=your_email_password</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Post-Installation</h4>
-                                <ul class="post-install">
-                                    <li>Access the application at <code>http://localhost:3000</code></li>
-                                    <li>Run database migrations: <code>npm run migrate</code></li>
-                                    <li>Create your first admin user</li>
-                                    <li>Set up your company information</li>
-                                </ul>
-                                <div class="alert info">
-                                    <i class="fas fa-info-circle"></i>
-                                    <span>For production use, please set up a process manager like PM2.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="documentation-links">
-                        <a href="#" class="doc-link">
-                            <i class="fas fa-book"></i> Full Documentation
-                        </a>
-                        <a href="#" class="doc-link">
-                            <i class="fas fa-video"></i> Video Tutorials
-                        </a>
-                        <a href="#" class="doc-link">
-                            <i class="fas fa-question-circle"></i> Get Support
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Accounting System -->
-            <div id="accounting-section" class="product-section">
-                <div class="product-hero" style="background-color: #f0fdf4;">
-                    <div class="product-hero-content">
-                        <h2>Accounting System</h2>
-                        <p class="product-tagline">Comprehensive financial management for modern businesses</p>
-                        <div class="product-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-book"></i>
-                                <span>General Ledger</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                <span>AP/AR</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Financial Reports</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <div class="image-placeholder">Accounting Dashboard Preview</div>
-                    </div>
-                </div>
+# or
+yarn dev</code></pre>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">3</div>
+                               <div class="step-content">
+                                   <h4>Configuration</h4>
+                                   <p>Configure your database connection in the <code>.env</code> file.</p>
+                                   <p>Set up your company information and fiscal year settings in the admin panel.</p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cta-container">
+                           <a href="#contact" class="cta-button secondary">
+                               <i class="fas fa-headset"></i> Need Help? Contact Support
+                           </a>
+                           <a href="#" class="doc-link" target="_blank" rel="noopener noreferrer">
+                               <i class="fas fa-book"></i> View Full Documentation
+                           </a>
+                       </div>
+                   </div>
+               </div>
                 <div class="product-features">
                     <h3>Key Features</h3>
                     <div class="features-grid">
@@ -242,7 +328,7 @@ SMTP_PASS=your_email_password</code></pre>
                         </div>
                         <div class="feature-card">
                             <i class="fas fa-hand-holding-usd"></i>
-                            <h4>Accounts Payable/Receivable</h4>
+                            <h4>Accounts Management</h4>
                             <p>Streamlined invoice and payment processing</p>
                         </div>
                         <div class="feature-card">
@@ -260,30 +346,113 @@ SMTP_PASS=your_email_password</code></pre>
             </div>
 
             <!-- Payroll System -->
-            <div id="payroll-section" class="product-section">
-                <div class="product-hero" style="background-color: #f5f3ff;">
-                    <div class="product-hero-content">
-                        <h2>Payroll System</h2>
-                        <p class="product-tagline">Automated payroll processing made simple</p>
-                        <div class="product-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-money-check-alt"></i>
-                                <span>Salary Processing</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Tax Compliance</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Leave Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <div class="image-placeholder">Payroll Dashboard Preview</div>
-                    </div>
-                </div>
+           <div id="payroll-section" class="product-section">
+               <div class="product-hero" style="background-color: #f5f3ff;">
+                   <div class="product-hero-content">
+                       <h2>Payroll System</h2>
+                       <p class="product-tagline">Automated payroll processing made simple</p>
+                       <a href="#payroll-installation" class="cta-button primary">
+                           <i class="fas fa-download"></i> Get Started
+                       </a>
+                   </div>
+                   <div class="product-image">
+                       <div class="image-placeholder">Payroll Dashboard Preview</div>
+                   </div>
+               </div>
+
+               <!-- Overview Section -->
+               <div class="content-section">
+                   <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                   <div class="section-content">
+                       <p>Streamline your payroll operations with our automated payroll system. Handle complex payroll scenarios, tax compliance, and employee self-service with ease.</p>
+                       <div class="feature-grid">
+                           <div class="feature-card">
+                               <i class="fas fa-calculator"></i>
+                               <h4>Automated Calculations</h4>
+                               <p>Accurate salary, tax, and deduction calculations</p>
+                           </div>
+                           <div class="feature-card">
+                               <i class="fas fa-file-export"></i>
+                               <h4>Tax Filing</h4>
+                               <p>Automated tax form generation and e-filing</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- UI Interfaces -->
+               <div class="content-section">
+                   <h3><i class="fas fa-desktop"></i> UI Interfaces</h3>
+                   <div class="section-content">
+                       <div class="ui-gallery">
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/f5f3ff/5b21b6?text=Payroll+Dashboard');"></div>
+                               <p>Payroll Dashboard</p>
+                           </div>
+                           <div class="ui-preview">
+                               <div class="ui-image" style="background-image: url('https://placehold.co/600x400/ede9fe/5b21b6?text=Employee+Portal');"></div>
+                               <p>Employee Self-Service</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Installation Guide -->
+               <div id="payroll-installation" class="content-section installation-guide">
+                   <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                   <div class="section-content">
+                       <div class="installation-steps">
+                           <div class="step">
+                               <div class="step-number">1</div>
+                               <div class="step-content">
+                                   <h4>System Requirements</h4>
+                                   <ul>
+                                       <li>Docker and Docker Compose</li>
+                                       <li>4GB+ RAM (8GB recommended)</li>
+                                       <li>Docker Engine 20.10+</li>
+                                       <li>Docker Compose 2.0+</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">2</div>
+                               <div class="step-content">
+                                   <h4>Quick Start with Docker</h4>
+                                   <div class="code-block">
+                                       <pre><code># Clone the repository
+git clone https://github.com/your-repo/payroll-system.git
+cd payroll-system
+
+# Copy environment file
+cp .env.example .env
+
+# Start the application
+docker-compose up -d
+
+# Run database migrations
+docker-compose exec app php artisan migrate --seed</code></pre>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="step">
+                               <div class="step-number">3</div>
+                               <div class="step-content">
+                                   <h4>Configuration</h4>
+                                   <p>Update the <code>.env</code> file with your company details and email settings.</p>
+                                   <p>Configure tax tables and benefit deductions in the admin panel.</p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="cta-container">
+                           <a href="#contact" class="cta-button secondary">
+                               <i class="fas fa-headset"></i> Need Help? Contact Support
+                           </a>
+                           <a href="#" class="doc-link" target="_blank" rel="noopener noreferrer">
+                               <i class="fas fa-book"></i> View Full Documentation
+                           </a>
+                       </div>
+                   </div>
+               </div>
                 <div class="product-features">
                     <h3>Key Features</h3>
                     <div class="features-grid">

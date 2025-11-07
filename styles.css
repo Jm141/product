@@ -157,6 +157,9 @@ section {
 /* Product Sections */
 .product-sections {
     position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .product-section {
@@ -164,24 +167,296 @@ section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .product-section.active {
     display: block;
     opacity: 1;
     transform: translateY(0);
+    animation: fadeInUp 0.6s ease-out;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content Sections */
+.content-section {
+    margin: 4rem 0;
+    padding: 0 1rem;
+}
+
+.content-section h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.content-section h3 i {
+    color: var(--primary);
+}
+
+.section-content {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+}
+
+/* UI Gallery */
+.ui-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.ui-preview {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ui-preview:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ui-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ui-preview p {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* Installation Guide */
+.installation-guide {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-color) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.installation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 2rem 0;
+}
+
+.installation-steps::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary);
+    opacity: 0.2;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    position: absolute;
+    left: -3.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.step-content {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex-grow: 1;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.step-content h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.step-content ul {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+}
+
+.step-content ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* CTA Buttons */
+.cta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.cta-button i {
+    font-size: 1.1rem;
+}
+
+.cta-button.primary {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+}
+
+.cta-button.primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.doc-link:hover {
+    color: var(--primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .ui-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .installation-steps {
+        padding-left: 2rem;
+    }
+    
+    .step-number {
+        width: 2rem;
+        height: 2rem;
+        left: -2.5rem;
+    }
+    
+    .content-section {
+        margin: 2.5rem 0;
+        padding: 0;
+    }
+    
+    .section-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .content-section .section-content {
+        background: var(--card-bg-dark);
+        border-color: var(--border-color-dark);
+    }
+    
+    .step-content {
+        background: var(--card-bg-dark);
+        border-color: var(--border-color-dark);
+    }
+    
+    .doc-link {
+        color: var(--muted-dark);
+    }
+    
+    .doc-link:hover {
+        color: var(--primary-light);
+    }
+
+/* Product Hero */
 .product-hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto 4rem;
-    padding: 3rem 2rem;
+    padding: 4rem 3rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Dark mode adjustments for hero */
+@media (prefers-color-scheme: dark) {
+    .product-hero {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .product-hero-content {
@@ -201,6 +476,7 @@ section {
     color: var(--muted);
     margin-bottom: 2rem;
     max-width: 600px;
+    line-height: 1.6;
 }
 
 .product-highlights {
