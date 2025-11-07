@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARUGA Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">
+                    <span>Enterprise Solutions Suite</span>
+                </div>
+                <h1>ARUGA Products</h1>
+                <p class="subtitle">
+                    Comprehensive enterprise solutions designed for local government units, accounting firms, and modern
+                    businesses seeking streamlined operations.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn primary">
+                        Explore Products
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn secondary">
+                        View Documentation
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <h2>Our Solutions</h2>
+            <div class="product-tabs">
+                <button class="tab-btn active" data-tab="lgu">LGU Management</button>
+                <button class="tab-btn" data-tab="accounting">Accounting System</button>
+                <button class="tab-btn" data-tab="payroll">Payroll System</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="lgu-tab">
+                    <div class="product-details">
+                        <div class="product-info">
+                            <h3>LGU Management System</h3>
+                            <p class="product-description">Comprehensive local government unit management solution designed for municipal and provincial operations.</p>
+                            <ul class="features">
+                                <li>Citizen Management</li>
+                                <li>Permit & License Processing</li>
+                                <li>Revenue Management</li>
+                                <li>Reporting & Analytics</li>
+                            </ul>
+                            <button class="btn primary">Learn More</button>
+                        </div>
+                        <div class="product-image">
+                            <div class="image-placeholder">LGU System Preview</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other tabs will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="contact-content">
+                <h2>Ready to get started?</h2>
+                <p>Contact us today to schedule a demo or learn more about our solutions.</p>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="interest" required>
+                            <option value="">I'm interested in...</option>
+                            <option value="lgu">LGU Management System</option>
+                            <option value="accounting">Accounting System</option>
+                            <option value="payroll">Payroll System</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn primary">Get in Touch</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 ARUGA Products. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
