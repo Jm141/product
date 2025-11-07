@@ -5,21 +5,24 @@ const products = [
     name: "LGU Management System",
     description: "Comprehensive local government unit management solution designed for municipal and provincial operations.",
     overview: "Streamline administrative processes, manage citizen services, and improve operational efficiency with our integrated LGU platform. Built specifically for government entities with compliance features and secure data management.",
-    features: ["Citizen Management", "Permit & License Processing", "Revenue Management", "Reporting & Analytics"]
+    features: ["Citizen Management", "Permit & License Processing", "Revenue Management", "Reporting & Analytics"],
+    color: "#f0f9ff"
   },
   {
     id: "accounting",
     name: "Accounting & Financial System",
     description: "Complete accounting and financial management system for enterprises of all sizes.",
     overview: "Manage your finances with precision. Our accounting system provides real-time financial reporting, automated workflows, and compliance with accounting standards. Perfect for CFOs and finance teams managing complex operations.",
-    features: ["General Ledger", "Accounts Payable/Receivable", "Financial Reporting", "Budget Management"]
+    features: ["General Ledger", "Accounts Payable/Receivable", "Financial Reporting", "Budget Management"],
+    color: "#f0fdf4"
   },
   {
     id: "payroll",
     name: "Payroll Management System",
     description: "Automated payroll processing and employee compensation management.",
     overview: "Simplify payroll operations with automated calculation, tax compliance, and employee self-service. Our system handles complex payroll scenarios while maintaining security and accuracy for your workforce.",
-    features: ["Salary Processing", "Tax Compliance", "Leave Management", "Employee Portal"]
+    features: ["Salary Processing", "Tax Compliance", "Leave Management", "Employee Portal"],
+    color: "#f5f3ff"
   }
 ];
 
@@ -27,28 +30,26 @@ const products = [
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabContent = document.querySelector('.tab-content');
 const contactForm = document.getElementById('contactForm');
+const productSections = document.querySelectorAll('.product-section');
+const navLinks = document.querySelectorAll('.nav-link');
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize the first tab as active
-  renderProductTab(products[0]);
+  // Initialize the first tab and section as active
+  showProduct(products[0].id);
   
   // Add event listeners to tab buttons
   tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active class to clicked button
-      button.classList.add('active');
-      
-      // Find the selected product
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
       const productId = button.getAttribute('data-tab');
-      const selectedProduct = products.find(product => product.id === productId);
+      showProduct(productId);
       
-      // Render the selected product tab
-      if (selectedProduct) {
-        renderProductTab(selectedProduct);
-      }
+      // Update URL hash
+      window.location.hash = productId;
+      
+      // Scroll to the product section
+      document.getElementById(`${productId}-section`).scrollIntoView({ behavior: 'smooth' });
     });
   });
   
@@ -56,7 +57,65 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', handleContactSubmit);
   }
+  
+  // Handle hash changes for direct linking
+  window.addEventListener('hashchange', handleHashChange);
+  
+  // Check for initial hash
+  if (window.location.hash) {
+    const productId = window.location.hash.substring(1);
+    if (productId) {
+      showProduct(productId);
+    }
+  }
 });
+
+// Handle hash changes
+function handleHashChange() {
+  const productId = window.location.hash.substring(1);
+  if (productId) {
+    showProduct(productId);
+  }
+}
+
+// Show product section and update active states
+function showProduct(productId) {
+  // Hide all product sections
+  productSections.forEach(section => {
+    section.classList.remove('active');
+  });
+  
+  // Show selected product section
+  const activeSection = document.getElementById(`${productId}-section`);
+  if (activeSection) {
+    activeSection.classList.add('active');
+  }
+  
+  // Update tab buttons
+  tabButtons.forEach(button => {
+    if (button.getAttribute('data-tab') === productId) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  });
+  
+  // Update navigation links
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === `#${productId}`) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+  
+  // Scroll to top of the section
+  if (activeSection) {
+    setTimeout(() => {
+      activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
 
 // Render product tab content
 function renderProductTab(product) {
